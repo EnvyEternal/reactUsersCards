@@ -1,0 +1,14 @@
+[
+  {
+    "id": 1,
+    "nameUser": "name1",
+    "emailUser": "name1@mail.com",
+    "isAuth": false
+  },
+  {
+    "id": 2,
+    "nameUser": "name2",
+    "emailUser": "name2@mail.com",
+    "isAuth": false
+  }
+]
