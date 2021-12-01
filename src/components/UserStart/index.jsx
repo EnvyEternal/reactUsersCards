@@ -1,15 +1,19 @@
 import React, {useState} from 'react';
 import { connect } from 'react-redux';
 import { downloadUser } from '../../actions';
+import axios from 'axios';
 
 const UserStart = (props) => {
     const {createUserAction} = props;
     const [load, setLoad] = useState(false)
-    const download = () =>{
-        fetch(`https://randomuser.me/api/?results=10&page=1`)
+    /*const [us, setUs] = useState([])
+    fetch(`https://randomuser.me/api/?results=10&page=1`)
          .then((response) => response.json())
-         .then(({results}) => {createUserAction(results); console.log(results)});
-         
+         .then(({results}) => {setUs(results)});
+*/
+    const download = () =>{
+        const {request} = axios.get('https://randomuser.me/api/?results=10&page=1')
+        .then(response => createUserAction(response.data))
          setLoad(!load)
     }
     return(
@@ -26,6 +30,7 @@ const mapStateToProps = state => state.userReducerStates;
  const mapDispatchToProps = dispatch => {
      return{
          createUserAction: data => {
+             
              dispatch(downloadUser(data));
          }
      };

@@ -1,7 +1,7 @@
 import ACTION_TYPES from '../actions/actionsType';
 
 const initialState = {
-  users: {}
+  users:[]
 };
 
 const userReducer = (state = initialState, action) => {
@@ -13,7 +13,8 @@ const userReducer = (state = initialState, action) => {
         ...data,
         id: Date.now(),
       };
-      const newUsers = [users, newUser];
+      console.log('REDUCER '+{newUser})
+      const newUsers = [...users, newUser.results];
       console.log(newUser)
       return { users: newUsers };
     }

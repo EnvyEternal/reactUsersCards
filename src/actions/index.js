@@ -1,8 +1,11 @@
 import ACTION_TYPES from './actionsType';
+import axios from 'axios';
 
 export const downloadUser = (data) => {
+
   return {
     type: ACTION_TYPES.DOWNLOAD_USERS,
+    
     data: data,
   };
 };
