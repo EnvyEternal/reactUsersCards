@@ -19,14 +19,17 @@ const UserStart = (props) => {
     const mapUsers = (u) => {
         return <UserList key={u.login.md5} u={u} />
     }
-    
+
     return(
         <div>
             <button>Prev</button>
-            <button onClick={next}>Next</button>
+            <button>Next</button>
             {!load?
-            <div>For load Users click
-            <button onClick={download}>Start</button></div>  : <li className='Li'>{users.map(mapUsers)}</li>
+            <div>
+                For load Users click
+            <button onClick={download}>Start</button></div>  
+            : 
+            <li className='Li'>{users.map(mapUsers)}</li>
                 }
         </div>
     );
