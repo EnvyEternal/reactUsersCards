@@ -9,7 +9,6 @@ const userReducer = (state = initialState, action) => {
     case ACTION_TYPES.DOWNLOAD_USERS: {
       const { users } = state;
       const { data } = action;
-      
       return { ...state,
         users:  data };
     }

@@ -1,5 +1,4 @@
-import React,{useEffect, useState} from "react";
-import { connect } from "react-redux";
+import React from "react";
 
 const UserList = (props) => {
         const {u} = props;
