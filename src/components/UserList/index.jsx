@@ -1,24 +1,15 @@
-import React from "react";
+import React,{useEffect, useState} from "react";
 import { connect } from "react-redux";
 
 const UserList = (props) => {
-    
-    const {users} = props;
-   
-    
-   // data.results[1].gender
-   console.log('hello', users)
-   
-    
-    const mapUser = (element) => {
-       
-        console.log('element '+ element)
-    
-    };
-    return <ul>{users.map(mapUser)}</ul>;
+        const {u} = props;
+            return(
+                <li>
+                   <ul>{u.name.title} {u.name.first}</ul>
+                   <ul>{u.name.last}</ul>
+                   <ul>{u.email}</ul>
+                </li>
+            );
 }
 
-const mapStateToProps = (state) => state.userReducerStates;
-
-
-export default connect(mapStateToProps)(UserList);
+export default UserList;

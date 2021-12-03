@@ -6,7 +6,6 @@ const UserPage = () => {
     return(
         <>
             <UserStart />
-            <UserList />
         </>
     );
 }

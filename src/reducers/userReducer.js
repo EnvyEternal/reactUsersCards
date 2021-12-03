@@ -9,14 +9,9 @@ const userReducer = (state = initialState, action) => {
     case ACTION_TYPES.DOWNLOAD_USERS: {
       const { users } = state;
       const { data } = action;
-      const newUser = {
-        ...data,
-        id: Date.now(),
-      };
-      console.log('REDUCER '+{newUser})
-      const newUsers = [...users, newUser.results];
-      console.log(newUser)
-      return { users: newUsers };
+      
+      return { ...state,
+        users:  data };
     }
     case ACTION_TYPES.NEXT_USERS: {
     
