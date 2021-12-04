@@ -5,25 +5,39 @@ import UserList from '../UserList';
 
 const UserStart = (props) => {
     const {createUserAction} = props;
-    const [load, setLoad] = useState(false)
-    const {users} = props
+    const {users} = props;
+    const [load, setLoad] = useState(false);
+    const [currentPage, setCurrentPage] = useState(0);
 
     const download = () =>{
-        
-        fetch(`https://randomuser.me/api/?inc=name,login,email&results=10`)
+        (async () => {
+            const response = await
+        fetch(`https://randomuser.me/api/?page=${currentPage}&results=10&seed=abc`)
         .then((response) => response.json())
         .then(({ results }) => createUserAction(results))
-        .then(() => setLoad(true))
+        .then(() => setLoad(true),[currentPage])
+        })()
     }
 
     const mapUsers = (u) => {
         return <UserList key={u.login.md5} u={u} />
     }
+    const next = () =>{
+        setCurrentPage(currentPage+1)
+        download()
+        console.log(currentPage)
+    }
 
+    const prev = () =>{
+        if(currentPage < 1){alert('wrong')} else{
+        setCurrentPage(currentPage-1)
+        download()
+        console.log(currentPage)}
+    }
     return(
         <div>
-            <button>Prev</button>
-            <button>Next</button>
+            <button onClick={prev}>Prev</button>
+            <button onClick={next}>Next</button>
             {!load?
             <div>
                 For load Users click

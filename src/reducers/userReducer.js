@@ -1,7 +1,7 @@
 import ACTION_TYPES from '../actions/actionsType';
 
 const initialState = {
-  users:[]
+  users:[],
 };
 
 const userReducer = (state = initialState, action) => {
@@ -12,8 +12,6 @@ const userReducer = (state = initialState, action) => {
         users:  data };
     }
     case ACTION_TYPES.NEXT_USERS: {
-    
-      
       return state ;
     }
     default:
